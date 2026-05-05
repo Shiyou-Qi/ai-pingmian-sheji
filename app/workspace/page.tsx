@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 
 type User = { email: string; plan: "free" | "pro" | "team" };
@@ -29,7 +30,10 @@ export default function WorkspacePage() {
   const generate = async () => {
     setLoading(true);
     setImage(null);
-    const res = await fetch("/api/generate", { method: "POST", body: JSON.stringify({ prompt }) });
+    const res = await fetch("/api/generate", {
+      method: "POST",
+      body: JSON.stringify({ prompt })
+    });
     const json = await res.json();
     setImage(json.image ?? null);
     setLoading(false);
@@ -48,7 +52,9 @@ export default function WorkspacePage() {
           <input className="input" value={email} onChange={(e) => setEmail(e.target.value)} />
           <label className="label" style={{ marginTop: 10 }}>密码</label>
           <input className="input" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-          <button className="btn btn-primary" style={{ marginTop: 14 }} onClick={submitAuth}>{mode === "login" ? "登录" : "注册并进入"}</button>
+          <button className="btn btn-primary" style={{ marginTop: 14 }} onClick={submitAuth}>
+            {mode === "login" ? "登录" : "注册并进入"}
+          </button>
         </section>
       ) : (
         <section className="grid" style={{ gridTemplateColumns: "1fr 1fr" }}>
@@ -68,7 +74,13 @@ export default function WorkspacePage() {
             <button className="btn btn-primary" onClick={generate} disabled={loading} style={{ marginTop: 12 }}>
               {loading ? "生成中..." : "生成图片"}
             </button>
-            {image && <img src={image} alt="AI" style={{ marginTop: 16, width: "100%", borderRadius: 12, border: "1px solid var(--line)" }} />}
+            {image ? (
+              <img
+                src={image}
+                alt="AI"
+                style={{ marginTop: 16, width: "100%", borderRadius: 12, border: "1px solid var(--line)" }}
+              />
+            ) : null}
           </article>
         </section>
       )}

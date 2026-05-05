@@ -20,3 +20,7 @@ npm install
 cp .env.example .env.local
 npm run dev
 ```
+
+## 安全说明
+- 已将 Next.js 升级到包含 CVE-2025-66478 修复的安全版本线（`^15.5.7`）。
+- 已将 React 升级到修复对应 RSC 漏洞的安全版本线（`^19.1.2`）。

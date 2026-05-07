@@ -1,0 +1,29 @@
+{
+  "name": "ai-design-saas",
+  "version": "0.3.1",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "jose": "^5.9.6",
+    "next": "15.5.7",
+    "openai": "^4.80.1",
+    "pg": "^8.13.1",
+    "react": "19.1.2",
+    "react-dom": "19.1.2",
+    "stripe": "^18.0.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.17",
+    "@types/pg": "^8.11.10",
+    "@types/react": "^19.1.5",
+    "@types/react-dom": "^19.1.5",
+    "typescript": "^5.8.3"
+  }
+}
